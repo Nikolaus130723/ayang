@@ -1,0 +1,194 @@
+/* Aturan Umum untuk Semua Halaman */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+body.home {
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+}
+
+body.page2 {
+    background-color: white;
+}
+
+body.page3 {
+    background-image: url('background.jpg');
+    background-size: 50%;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: white;
+}
+.card {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+}
+
+h1 {
+    color: #ff758c;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.message {
+    font-size: 18px;
+    color: #555;
+    margin: 15px 0;
+}
+
+.button {
+    display: inline-block;
+    background-color: #ff758c;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: #ff5e75;
+}
+
+.hearts {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    background-color: #ff758c;
+    transform: rotate(-45deg);
+    animation: float 7s infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #ff758c;
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -20px;
+    left: 0;
+}
+
+.heart:after {
+    left: 20px;
+    top: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateX(0) translateY(0) scale(0.8) rotate(-45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(calc(-50vw + 100vw * var(--random-x))) translateY(-100vh) scale(1.2) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+/* Variasi animasi hati */
+.heart:nth-child(1) {
+    --random-x: 0.2;
+    left: 10%;
+    animation-duration: 8s;
+    animation-delay: 0s;
+}
+
+.heart:nth-child(2) {
+    --random-x: 0.4;
+    left: 30%;
+    animation-duration: 6s;
+    animation-delay: 1s;
+}
+
+.heart:nth-child(3) {
+    --random-x: 0.6;
+    left: 50%;
+    animation-duration: 7s;
+    animation-delay: 2s;
+}
+
+.heart:nth-child(4) {
+    --random-x: 0.8;
+    left: 70%;
+    animation-duration: 9s;
+    animation-delay: 3s;
+}
+
+.heart:nth-child(5) {
+    --random-x: 1.0;
+    left: 90%;
+    animation-duration: 5s;
+    animation-delay: 1.5s;
+}
+
+/* Gaya untuk Pesan Cinta di Halaman Ketiga */
+.message-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Pastikan container memenuhi layar */
+}
+
+.love-message {
+    position: relative; /* Untuk menempatkan anak di dalamnya */
+    overflow: hidden; /* Mencegah overflow */
+}
+
+.love-message span {
+    font-size: 10vw; /* Ukuran font besar (menyesuaikan dengan lebar layar) */
+    color: #ff758c;
+    animation: scaleInOut 3s ease infinite; /* Ulangi animasi */
+}
+
+/* Animasi muncul dari kecil ke besar lalu hilang */
+@keyframes scaleInOut {
+    0% {
+        opacity: 0; /* Mulai tidak terlihat */
+        transform: scale(0); /* Mulai dari sangat kecil */
+    }
+    10% {
+        opacity: 1; /* Menjadi terlihat */
+        transform: scale(1.5); /* Membesar hingga 1.5x */
+    }
+    50% {
+        opacity: 1; /* Tetap terlihat */
+        transform: scale(3); /* Membesar hingga memenuhi layar */
+    }
+    100% {
+        opacity: 0; /* Hilang */
+        transform: scale(0); /* Kembali ke kecil */
+    }
+}
